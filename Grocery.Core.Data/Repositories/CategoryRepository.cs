@@ -1,10 +1,5 @@
 ﻿using Grocery.Core.Interfaces.Repositories;
 using Grocery.Core.Models;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Grocery.Core.Data.Repositories
 {
@@ -28,6 +23,23 @@ namespace Grocery.Core.Data.Repositories
         public List<Category> GetAll()
         {
             return categories;
+        }
+        public Category Add(Category item)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Category? Delete(Category item)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Category? Update(Category item)
+        {
+            Category? category = categories.FirstOrDefault(p => p.Id == item.Id);
+            if (category == null) return null;
+            category.Id = item.Id;
+            return category;
         }
 
     }
