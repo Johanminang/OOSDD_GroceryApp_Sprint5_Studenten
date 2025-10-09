@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:vm="clr-namespace:Grocery.App.ViewModels"
+             xmlns:m="clr-namespace:Grocery.Core.Models;assembly=Grocery.Core"
+             x:Class="Grocery.App.Views.CategoriesView"
+             x:DataType="vm:CategoriesViewModel"
+             Title="Categories">
+
+    <VerticalStackLayout Padding="10" Spacing="10">
+        <Label 
+            Text="Kies een categorie"
+            FontSize="22"
+            FontAttributes="Bold"
+            HorizontalOptions="Center" />
+
+        <CollectionView ItemsSource="{Binding Categories}"
+                        SelectionMode="Single"
+                        x:Name="CategoriesCollectionView"
+                        SelectionChangedCommand="{Binding SelectCategoryCommand}"
+                        SelectionChangedCommandParameter="{Binding SelectedItem[0], Source={x:Reference CategoriesCollectionView}}">
+
+            <CollectionView.ItemTemplate>
+                <DataTemplate x:DataType="m:Category">
+                    <Frame Padding="10" Margin="0,5"
+                           BackgroundColor="{AppThemeBinding Light=#ffffff, Dark=#2b2b2b}"
+                           BorderColor="{AppThemeBinding Light=#cccccc, Dark=#444444}"
+                           CornerRadius="12"
+                           HasShadow="True">
+                        <HorizontalStackLayout Spacing="10">
+                            <Label Text="{Binding Name}" 
+                                   FontSize="18"
+                                   VerticalOptions="Center" />
+                        </HorizontalStackLayout>
+                    </Frame>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+    </VerticalStackLayout>
+</ContentPage>
