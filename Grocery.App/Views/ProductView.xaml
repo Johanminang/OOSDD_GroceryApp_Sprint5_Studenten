@@ -21,13 +21,11 @@
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="3*"/>
                         <ColumnDefinition Width="2*"/>
-                        <ColumnDefinition Width="2*"/>
                         <ColumnDefinition Width="*"/>
                     </Grid.ColumnDefinitions>
                     <Label Text="Naam van het product" Grid.Column="0" FontAttributes="Bold"/>
                     <Label Text="Voorraad" Grid.Column="1" HorizontalTextAlignment="End" FontAttributes="Bold"/>
                     <Label Text="THT datum" Grid.Column="2" HorizontalTextAlignment="End" FontAttributes="Bold"/>
-                    <Label Text="Prijs" Grid.Column="3" HorizontalTextAlignment="End" FontAttributes="Bold"/>
                 </Grid>
             </CollectionView.Header>
             <CollectionView.ItemTemplate>
@@ -35,7 +33,6 @@
                     <Grid>
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="3*"/>
-                            <ColumnDefinition Width="2*"/>
                             <ColumnDefinition Width="2*"/>
                             <ColumnDefinition Width="*"/>
                         </Grid.ColumnDefinitions>
@@ -48,7 +45,6 @@
                             </Label.Triggers>
                         </Label>
                         <Label Grid.Column="2" Text="{Binding ShelfLife}" HorizontalOptions="End"/>
-                        <Label Grid.Column="3" Text="{Binding Price, StringFormat='€{0:F2}'}" HorizontalOptions="End"/>
                     </Grid>
                 </DataTemplate>
             </CollectionView.ItemTemplate>
